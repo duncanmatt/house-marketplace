@@ -36,19 +36,19 @@ function Listing() {
 
   return (
     <main>
-      <Carousel autoplay >
+      <Carousel effect='fade' dots autoplay >
         {listing.imgUrls.map((url, index) => (
           <div key={index}>
-            <img
-              src={url}
-              alt=''
+            <div
               style={{
+
+                backgroundImage: `url(${url})`,
                 backgroundSize: 'cover',
                 height: '160px',
                 lineHeight: '160px',
                 textAlign: 'center',
               }}
-            />
+            ></div>
           </div>
         ))}
       </Carousel>
