@@ -46,25 +46,45 @@ function Slider() {
 
 				<Carousel
 					effect='fade'
-          dots
+					dots
 					autoplay>
-					{listings.map(({data, id}) => (
+					{listings.map(({ data, id }) => (
 						<div
 							key={id}
-							onClick={() => navigate(`/category/${data.type}/${id}`)}>
+							onClick={() => navigate(`/category/${data.type}/${id}`)}
+							style={{}}>
 							<div
 								style={{
+									borderRadius: '14px',
 									background: `url(${data.imgUrls[0]}) center no-repeat`,
 									backgroundSize: 'cover',
-									height: '160px',
-									lineHeight: '160px',
-									textAlign: 'center',
-								}}></div>
-							<p className='carouselSlideText'>{data.name}</p>
-							<p className='carouselSLidePrice'>
-								${data.discountedPrice ?? data.regularPrice}{' '}
-								{data.type === 'rent' && '/ month'}
-							</p>
+									height: '25vh',
+									color: 'white',
+								}}>
+								<div>
+									<p
+										className='carouselSlideText'
+										style={{
+											backgroundColor: 'rgba(0, 0, 0, 0.2)',
+											borderTopLeftRadius: '14px',
+											borderTopRightRadius: '14px',
+											paddingInline: '40px',
+											fontWeight: '600',
+										}}>
+										{data.name} -  
+										${data.discountedPrice ?? data.regularPrice}{' '} 
+										{data.type === 'rent' && '/ month'}
+									</p>
+									<p
+										className='carouselSLidePrice'
+										style={{
+											backgroundColor: 'rgba(0, 0, 0, 0.2)',
+										}}>
+										
+										
+									</p>
+								</div>
+							</div>
 						</div>
 					))}
 				</Carousel>
